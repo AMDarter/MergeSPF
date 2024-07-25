@@ -8,9 +8,9 @@ class MergeSPF
      * @param string $spfRecord1 The first SPF record.
      * @param string $spfRecord2 The second SPF record.
      * @param string $default The default SPF record to return if the merge fails. Default: "v=spf1 -all".
-     * @return string The merged SPF record or the first SPF record if the merge fails.
+     * @return string The merged SPF record or the default SPF record if the merge fails.
      */
-    public static function merge(string $spfRecord1, string $spfRecord2, string $default = "v=spf1 -all")
+    public static function merge(string $spfRecord1, string $spfRecord2, string $default = "v=spf1 -all"): string
     {
         try {
             // Trim whitespace.
