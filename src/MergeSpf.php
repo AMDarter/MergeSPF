@@ -91,12 +91,12 @@ class MergeSPF
                     $allMechanisms[$key] = substr($mechanism, 1);
                 }
             }
-            // Construct the merged SPF record
-            $mergedRecord = 'v=spf1 ' . implode(' ', $allMechanisms) . ' ' . $allQualifier;
             // Ensure the merged SPF record doesn't have too many DNS lookups
             if (count($allMechanisms) > 10) {
                 return $default;
             }
+            // Construct the merged SPF record
+            $mergedRecord = 'v=spf1 ' . implode(' ', $allMechanisms) . ' ' . $allQualifier;
             // Add unique modifiers at the end of the SPF record.
             if (!empty($allModifiers)) {
                 $mergedRecord .= ' ' . implode(' ', array_unique($allModifiers));

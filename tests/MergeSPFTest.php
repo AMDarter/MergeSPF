@@ -1,10 +1,13 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
+require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../src/MergeSPF.php';
 
 class MergeSPFTest extends TestCase
 {
+    
     public function testMergeIdenticalRecords()
     {
         $spfRecord1 = 'v=spf1 a mx -all';
@@ -48,17 +51,8 @@ class MergeSPFTest extends TestCase
 
     public function testMergeWithTooManyMechanisms()
     {
-        $spfRecord1 = 'v=spf1 ' . str_repeat('a ', 12) . '-all'; // Too many mechanisms
-        $spfRecord2 = 'v=spf1 ' . str_repeat('a ', 12) . '-all'; // Too many mechanisms
-        $default = 'v=spf1 -all';
-        $merged = MergeSPF::merge($spfRecord1, $spfRecord2, $default);
-        $this->assertEquals($default, $merged);
-    }
-
-    public function testMergeWithLongRecord()
-    {
-        $spfRecord1 = 'v=spf1 ' . str_repeat('a ', 20) . '-all'; // Long record
-        $spfRecord2 = 'v=spf1 ' . str_repeat('a ', 20) . '-all'; // Long record
+        $spfRecord1 = 'v=spf1 a mx ip4:192.168.1.1 ip4:192.168.1.2 ip4:192.168.1.3 ip4:192.168.1.4 ip4:192.168.1.5 ip4:192.168.1.6 ip4:192.168.1.7 ip4:192.168.1.8 ip4:192.168.1.9 ip4:192.168.1.10 -all';
+        $spfRecord2 = 'v=spf1 ' . str_repeat('a ', 12) . '-all';
         $default = 'v=spf1 -all';
         $merged = MergeSPF::merge($spfRecord1, $spfRecord2, $default);
         $this->assertEquals($default, $merged);
