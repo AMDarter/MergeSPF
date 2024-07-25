@@ -37,7 +37,7 @@ To use the `MergeSPF` class, follow these steps:
     - `$spfRecord2` (string): The second SPF record.
     - `$default` (string, optional): The default SPF record to return if the merge fails. Defaults to `"v=spf1 -all"`.
 
-3. **Handle Exceptions**: The method will return the first SPF record if an exception or error occurs during the merge process.
+3. **Handle Exceptions**: The method will return the default SPF record if an exception or error occurs during the merge process.
 
 ## Requirements
 PHP 7.0 or later.

@@ -108,9 +108,9 @@ class MergeSPF
             // Remove any extra spaces for consistency
             return preg_replace('/\s+/', ' ', $mergedRecord);
         } catch (\Exception $e) {
-            return $spfRecord1;
+            return $default;
         } catch (\Throwable $e) {
-            return $spfRecord1;
+            return $default;
         }
     }
 }
