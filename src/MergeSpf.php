@@ -1,5 +1,7 @@
 <?php
 
+namespace AMDarter;
+
 class MergeSPF
 {
     /**

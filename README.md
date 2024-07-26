@@ -17,7 +17,7 @@ To use the `MergeSPF` class, follow these steps:
 1. **Include the PHP File**: Ensure that the PHP file containing the `MergeSPF` class is included in your project.
 
     ```php
-    include 'MergeSPF.php';
+    use AMDarter\MergeSPF;
     ```
 
 2. **Call the `merge` Method**: Use the static `merge` method to combine two SPF records.

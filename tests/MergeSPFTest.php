@@ -1,9 +1,9 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+namespace AMDarter;
 
-require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../src/MergeSPF.php';
+use PHPUnit\Framework\TestCase;
+use AMDarter\MergeSPF;
 
 class MergeSPFTest extends TestCase
 {
